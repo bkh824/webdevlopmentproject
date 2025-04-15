@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="All about the Utah Jazz, including team history, players, and stats." />
+    <meta name="author" content="Ben Harris" />
+    <title>Utah Jazz - NBA Game: Generate Your NBA Name</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" />
+    <!-- Custom Styles -->
+    <style>
+      /* Reset default styles */
+      html, body {
+        margin: 0;
+        height: 100%;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: #fff;
+        color: #212529;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: #4e0365;
+        padding: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .navbar-brand {
+        color: #fff;
+        font-family: "Lora", serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        margin-bottom: 10px;
+      }
+
+      .navbar-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .navbar-links a {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-links a:hover {
+        color: #f9e07f;
+      }
+
+      /* Masthead */
+      .masthead {
+        background-color: #fff;
+        color: #4e0365;
+        text-align: center;
+        padding: 50px 0;
+      }
+
+      .masthead h1 {
+        font-family: "Lora", serif;
+        font-size: 3rem;
+        font-weight: 700;
+      }
+
+      .masthead .subheading {
+        font-size: 1.25rem;
+        font-weight: 400;
+      }
+
+      /* Main Content */
+      main {
+        flex: 1 0 auto;
+        text-align: center;
+      }
+
+      /* Sections */
+      .section-heading {
+        font-family: "Lora", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4e0365;
+        margin-bottom: 20px;
+      }
+
+      /* Button Styling */
+      button {
+        background-color: #4e0365;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #f9e07f;
+        color: #4e0365;
+      }
+
+      /* Generated Name Styling */
+      .generated-name {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #4e0365;
+      }
+
+      /* Footer Styling */
+      footer {
+        background-color: #4e0365;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        flex-shrink: 0;
+      }
+
+      footer p {
+        font-size: 1rem;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Utah Jazz</a>
+        <div class="navbar-links">
+          <a href="index.html">Home</a>
+          <a href="scratchpage.html">Scratch</a>
+          <a href="aboutme.html">About Me</a>
+          <a href="resume.html">Resume</a>
+          <a href="nbagame.html">NBA Game</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead">
+      <div class="container">
+        <h1>NBA Game: Generate Your NBA Name</h1>
+        <span class="subheading">Discover your unique NBA player name!</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <section>
+          <h2 class="section-heading">Generate Your NBA Name</h2>
+          <p>Click the button below to create your own NBA name!</p>
+          <!-- Button to generate NBA name -->
+          <button id="generateBtn">Generate NBA Name</button>
+          <!-- Display the generated NBA name -->
+          <p id="nbaName" class="generated-name"></p>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>Created by Ben Harris - NBA Game</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Define the lists of first and last names of NBA players
+      const firstNames = [
+        "LeBron", "Stephen", "Kevin", "Kobe", "Shaquille", "James", "Michael", "Giannis", "Luka", "Anthony"
+      ];
+
+      const lastNames = [
+        "James", "Curry", "Durant", "Bryant", "O'Neal", "Harden", "Jordan", "Antetokounmpo", "Doncic", "Davis"
+      ];
+
+      // Select the button and the paragraph to display the generated name
+      const generateButton = document.getElementById("generateBtn");
+      const nbaNameDisplay = document.getElementById("nbaName");
+
+      // Function to generate a random NBA name
+      function generateNBAName() {
+        // Get random first and last names
+        const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+        const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+        // Display the generated NBA name
+        nbaNameDisplay.textContent = `${randomFirstName} ${randomLastName}`;
+      }
+
+      // Add an event listener to the button
+      generateButton.addEventListener("click", generateNBAName);
+    </script>
+  </body>
+</html>
